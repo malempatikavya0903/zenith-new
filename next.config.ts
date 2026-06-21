@@ -1,7 +1,12 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
+const nextConfig = {
+  // Disable Turbopack for production builds
+  webpack: (config) => {
+    config.watchOptions = {
+      poll: 800,
+      aggregateTimeout: 300,
+    };
+    return config;
+  },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
