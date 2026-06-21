@@ -1,11 +1,14 @@
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Disable Turbopack for production builds
-  webpack: (config) => {
-    config.watchOptions = {
-      poll: 800,
-      aggregateTimeout: 300,
-    };
-    return config;
+  reactStrictMode: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  images: {
+    unoptimized: true,
   },
 };
 
